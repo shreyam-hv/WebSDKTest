@@ -1,0 +1,26 @@
+{
+  "name": "hyperverge-web-sdk-tester",
+  "version": "1.0.0",
+  "description": "HyperVerge Web SDK Testing Application",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "build": "npm run build --workspace=frontend && npm run build --workspace=backend",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev"
+  },
+  "keywords": [
+    "hyperverge",
+    "kyc",
+    "hyperkeyc",
+    "web-sdk",
+    "testing"
+  ],
+  "author": "HyperVerge",
+  "license": "MIT"
+}

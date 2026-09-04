@@ -1,0 +1,31 @@
+services:
+  # Backend API Service
+  - type: web
+    name: hyperverge-sdk-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: HYPERVERGE_AUTH_URL
+        value: https://ind-state.idv.hyperverge.co/v2/auth/token
+      - key: CORS_ORIGIN
+        sync: false
+    autoDeploy: true
+
+  # Frontend Static Site
+  - type: static_site
+    name: hyperverge-sdk-frontend
+    env: static
+    region: oregon
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://hyperverge-sdk-backend.onrender.com
+    autoDeploy: true
