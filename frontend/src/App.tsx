@@ -423,7 +423,7 @@ export const App: React.FC = () => {
         <ResultPanel
           result={state.sdkResult as HyperKycResult | null}
           error={state.error}
-          tokenError={state.tokenError}
+          tokenError={state.tokenError ?? null}
           status={state.sdkStatus}
           transactionId={config.transactionId}
           onClear={handleClearResult}
