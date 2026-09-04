@@ -29,7 +29,7 @@ export interface WorkflowInput {
 }
 
 export interface HyperKycResult {
-  status: 'user_cancelled' | 'error' | 'auto_approved' | 'auto_declined' | 'needs_review';
+  status: string;
   code?: string;
   message?: string;
   details?: unknown;
